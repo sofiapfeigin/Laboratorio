@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="app.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        .animated:hover {
+            animation: shakeX;
+            /* referring directly to the animation's @keyframe declaration */
+            animation-duration: 1s;
+            /* don't forget to set a duration! */
+        }
+        .navbar {
+            height: 60px;
+            display: block;
+            position: fixed;
+            padding-top: 0px;
+            background-color: #daf1fe;
+        }
+        .loader-page {
+            position: fixed;
+            z-index: 25000;
+            background: rgb(255, 255, 255);
+            left: 0px;
+            top: 0px;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .3s ease;
+        }
+
+            .loader-page::before {
+                content: "";
+                position: absolute;
+                border: 2px solid rgb(50, 150, 176);
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                box-sizing: border-box;
+                border-left: 2px solid rgba(50, 150, 176,0);
+                border-top: 2px solid rgba(50, 150, 176,0);
+                animation: rotarload 1s linear infinite;
+                transform: rotate(0deg);
+            }
+
+        @keyframes rotarload {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loader-page::after {
+            content: "";
+            position: absolute;
+            border: 2px solid rgba(50, 150, 176,.5);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-sizing: border-box;
+            border-left: 2px solid rgba(50, 150, 176, 0);
+            border-top: 2px solid rgba(50, 150, 176, 0);
+            animation: rotarload 1s ease-out infinite;
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contenedor">
+        <div class="loader-page"></div>
+    </div>
+    <div style="font-size: 40pt; background-color: #daf1fe; width: 100%">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light " style="width: 100%;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="logo.png" alt="" width="80px" height="50px" class="d-inline-block align-text-center">
+                    Sagrado Corazón
+                </a>
+                <div class="collapse navbar-collapse" id="navbarText" style="font-size: 14px">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="mutuales.html">Mutuales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="preparacionPaciente.html">Preparación del paciente</a>
+                        </li>
+                        <li class="nav-item"> 
+                            <a class="nav-link active" href="listado.html">Listado de análisis</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+                    <img src="perfil-del-usuario.png" width="30px" />
+                    Mi Portal</button>
+            </div>
+        </nav>
+    </div>
+    <br />
+    <div class="container-fluid" style="margin-top:70px">
+
+
+        <div class="row">
+
+            <div class="col-xl-4">
+                <div class="card border-primary mb-3" style="max-width: 90%;">
+                    <div class="card-header" style="color:#007bff"><h5>A</h5></div>
+                    <div class="card-body" style="font-size:12px">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ACIDO FENIL ACETICO (AFA)</li>
+                            <li class="list-group-item">ACIDO FOLICO</li>
+                            <li class="list-group-item">ACIDO HOMOVANILICO</li>
+                            <li class="list-group-item">ACIDO LACTICO</li>
+                            <li class="list-group-item">ACIDO URICO</li>
+                            <li class="list-group-item">ACIDO URICO EN ORINA DE 24 HS. / Mtra. Aislada</li>
+                            <li class="list-group-item">ACIDO VALPROICO</li>
+                            <li class="list-group-item">ACIDO VANIL MANDELICO</li>
+                            <li class="list-group-item">ACIDOS BILIARES EN SANGRE</li>
+                            <li class="list-group-item">ACTH (HORMONA ADENOCORTICOTROPA)</li>
+                            <li class="list-group-item">ACTIVIDAD DE RENINA PLASMATICA</li>
+                            <li class="list-group-item">ADENOVIRUS, IgG ESPECIFICA</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="card border-primary mb-3" style="max-width: 90%;">
+                    <div class="card-header" style="color:#007bff"><h5>B</h5></div>
+                    <div class="card-body" style="font-size:12px">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">BACILOSCOPIA DIRECTA Y CULTIVO</li>
+                            <li class="list-group-item">BACTERIOLOGIA DIRECTA E IDENTIF. DE GERMENES</li>
+                            <li class="list-group-item">BARTONELLA HENSELAE, IGG ESPECIFICA</li>
+                            <li class="list-group-item">BARTONELLA HENSELAE, IGM ESPECIFICA</li>
+                            <li class="list-group-item">B-HCG  (GONADOTROFINA CORIONICA HUMANA)</li>
+                            <li class="list-group-item">B-HCG LIBRE</li>
+                            <li class="list-group-item">BETA 2 MICROGLOBULINA</li>
+                            <li class="list-group-item">BETA CAROTENOS</li>
+                            <li class="list-group-item">BILIRRUBINA (TOTAL, DIRECTA, INDIRECTA)</li>
+                            <li class="list-group-item">BORDETELLA PERTUSSIS, AG</li>
+                            <li class="list-group-item">BORDETELLA PERTUSSIS, IgG - IgM - IgA (c/u)</li>
+                            <li class="list-group-item">BORRELIA BURGDORFERI, IgG - IgM (c/u)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div class="col-xl-4">
+                <div class="card border-primary mb-3" style="max-width: 90%;">
+                    <div class="card-header" style="color:#007bff"><h5>C</h5></div>
+                    <div class="card-body" style="font-size:12px">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">C.A.125</li>
+                            <li class="list-group-item">C.A.15-3</li>
+                            <li class="list-group-item">C.A.19-9</li>
+                            <li class="list-group-item">C.P.K. (CREATINFOSFOKINASA)</li>
+                            <li class="list-group-item">C.P.K.-MB </li>
+                            <li class="list-group-item">C1 Q </li>
+                            <li class="list-group-item">C1 Q, INHIBIDOR</li>
+                            <li class="list-group-item">C2, FRACCION C2 DEL COMPLEMENTO</li>
+                            <li class="list-group-item">C3, FRACCION C3 DEL COMPLEMENTO</li>
+                            <li class="list-group-item">C4, FRACCION C4 DEL COMPLEMENTO</li>
+                            <li class="list-group-item">CALCIO</li>
+                            <li class="list-group-item">CALCIO IONICO</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Iniciar Sesion -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #8ac8ff">
+                    <h5 class="modal-title" id="exampleModalLabel">INGRESAR A MI PORTAL</h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: center;background-color: #cbe7ff;">
+                    <form>
+                        <div class="mb-3" style="flex-align: center">
+                            <label for="exampleInputEmail1" class="form-label">DNI</label>
+                            <input type="email" placeholder="Escriba su DNI sin puntos, ej: 48641578" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                        <div class="mb-3 form-check">
+                            ¿Olvidaste tu contraseña?
+                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#ModalCrearUsuario">Recuperar contraseña</button> <br />
+                            ¿Aún no tienes un usuario?
+                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#ModalCrearUsuario">Crear usuario</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal crear cuenta -->
+    <div class="modal fade" id="ModalCrearUsuario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #8ac8ff">
+                    <h5 class="modal-title" id="H1">CREAR CUENTA</h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: center;background-color: #cbe7ff;">
+                    <form>
+                        <div class="container-fluid">
+
+                            <div class="row" style="border: 1px; border-radius: 2px;">
+                                <div class="col-sm-6" style="font-size: 10pt;">
+                                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                                    <input type="email" placeholder="Escriba su email, ej: algo@gmail.com" class="form-control" id="Email5" aria-describedby="emailHelp">
+                                </div>
+                                <div class="col-sm-6" style="font-size: 10pt;">
+                                    <div class="mb-3" style="flex-align: center">
+                                        <label for="exampleInputEmail1" class="form-label">Celular</label>
+                                        <input type="text" placeholder="Escriba su celular con código de área sin '-', ej: +54 3517686490" class="form-control" id="Email3" aria-describedby="emailHelp">
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="row" style="border: 1px; border-radius: 2px;">
+                                <div class="col-sm-6" style="font-size: 10pt;">
+                                    <label for="exampleInputEmail1" class="form-label">DNI</label>
+                                    <input type="email" placeholder="Escriba su DNI sin puntos, ej: 48641578" class="form-control" id="Email1" aria-describedby="emailHelp">
+                                </div>
+                                <div class="col-sm-6" style="font-size: 10pt;">
+
+                                    <label for="exampleInputEmail1" class="form-label">Fcha de nacimiento</label>
+                                    <input type="date" class="form-control" id="Date2" aria-describedby="emailHelp">
+                                </div>
+                            </div>
+
+                            <div class="row" style="border: 1px; border-radius: 2px;">
+                                <div class="col-sm-12" style="font-size: 10pt;">
+                                    <div class="mb-3" style="flex-align: center">
+                                        <br />
+                                        <label for="exampleInputEmail1" class="form-label">Género</label>
+                                        <div>
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Femenino
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                Masculino
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="row" style="border: 1px; border-radius: 2px;">
+                                <div class="col-sm-6" style="font-size: 10pt;">
+                                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" id="Password1">
+                                </div>
+                                <div class="col-sm-6" style="font-size: 10pt;">
+                                    <label for="exampleInputPassword1" class="form-label">Repita la contraseña</label>
+                                    <input type="password" class="form-control" id="Password2">
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="mb-3 form-check">
+                            <button type="submit" class="btn btn-primary">Registrarme</button>
+
+                        </div>
+
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    $(window).on('load', function () {
+        setTimeout(function () {
+            $(".loader-page").css({ visibility: "hidden", opacity: "0" })
+        }, 2000);
+
+    });
+</script>
