@@ -665,6 +665,27 @@
                     </table>
                 </div>
             </div>
+            <div class="row" >
+                <div class="col-xl-12" >
+                    <nav aria-label="Page navigation example" > 
+                        <ul class="pagination justify-content-center">
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                              <span aria-hidden="true">&laquo;</span>
+                            </a>
+                          </li>
+                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                              <span aria-hidden="true">&raquo;</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>
+                </div>
+            </div>
         </div>
 
         <div id="misDatos" class="container-fluid" style="display: none; flex: 1;height: 100%;">
@@ -816,27 +837,7 @@
                     <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" style="text-align: center;background-color: #cbe7ff;">
-                    <form>
-                        <div class="mb-3" style="flex-align: center">
-                            <label for="exampleInputEmail1" class="form-label">DNI</label>
-                            <input type="email" placeholder="Escriba su DNI sin puntos, ej: 48641578"
-                                class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Ingresar</button>
-                        <div class="mb-3 form-check">
-                            ¿Olvidaste tu contraseña?
-                            <button type="button" class="btn btn-link" data-toggle="modal"
-                                data-target="#ModalCrearUsuario">Recuperar contraseña</button> <br />
-                            ¿Aún no tienes un usuario?
-                            <button type="button" class="btn btn-link" data-toggle="modal"
-                                data-target="#ModalCrearUsuario">Crear usuario</button>
-                        </div>
-
-                    </form>
+                    
                 </div>
 
             </div>
@@ -851,83 +852,7 @@
                     <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" style="text-align: center;background-color: #cbe7ff;">
-                    <form>
-                        <div class="container-fluid">
-
-                            <div class="row" style="border: 1px; border-radius: 2px;">
-                                <div class="col-sm-6" style="font-size: 10pt;">
-                                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                                    <input type="email" placeholder="Escriba su email, ej: algo@gmail.com"
-                                        class="form-control" id="Email5" aria-describedby="emailHelp">
-                                </div>
-                                <div class="col-sm-6" style="font-size: 10pt;">
-                                    <div class="mb-3" style="flex-align: center">
-                                        <label for="exampleInputEmail1" class="form-label">Celular</label>
-                                        <input type="text"
-                                            placeholder="Escriba su celular con código de área sin '-', ej: +54 3517686490"
-                                            class="form-control" id="Email3" aria-describedby="emailHelp">
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="row" style="border: 1px; border-radius: 2px;">
-                                <div class="col-sm-6" style="font-size: 10pt;">
-                                    <label for="exampleInputEmail1" class="form-label">DNI</label>
-                                    <input type="email" placeholder="Escriba su DNI sin puntos, ej: 48641578"
-                                        class="form-control" id="Email1" aria-describedby="emailHelp">
-                                </div>
-                                <div class="col-sm-6" style="font-size: 10pt;">
-
-                                    <label for="exampleInputEmail1" class="form-label">Fcha de nacimiento</label>
-                                    <input type="date" class="form-control" id="Date2" aria-describedby="emailHelp">
-                                </div>
-                            </div>
-
-                            <div class="row" style="border: 1px; border-radius: 2px;">
-                                <div class="col-sm-12" style="font-size: 10pt;">
-                                    <div class="mb-3" style="flex-align: center">
-                                        <br />
-                                        <label for="exampleInputEmail1" class="form-label">Género</label>
-                                        <div>
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                Femenino
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault2" checked>
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                                Masculino
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div class="row" style="border: 1px; border-radius: 2px;">
-                                <div class="col-sm-6" style="font-size: 10pt;">
-                                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" id="Password1">
-                                </div>
-                                <div class="col-sm-6" style="font-size: 10pt;">
-                                    <label for="exampleInputPassword1" class="form-label">Repita la contraseña</label>
-                                    <input type="password" class="form-control" id="Password2">
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="mb-3 form-check">
-                            <button type="submit" class="btn btn-primary">Registrarme</button>
-
-                        </div>
-
-
-                    </form>
+                   
                 </div>
 
             </div>
