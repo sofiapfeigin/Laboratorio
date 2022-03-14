@@ -22,7 +22,9 @@
 
     <script src="home.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css"
+        rel="stylesheet" />
     <style>
         .animated:hover {
             animation: shakeX;
@@ -31,12 +33,28 @@
             /* don't forget to set a duration! */
         }
 
+        html,
+        body {
+            height: 100%;
+            margin:0;
+            display: flex;
+            flex-direction: column;
+        }
+
         .navbar {
             height: 60px;
             display: block;
             position: fixed;
             padding-top: 0px;
-            background-color: #daf1fe;
+            background-color: rgb(159, 189, 255);
+        }
+
+        .card:hover {
+            background-color: rgb(159, 189, 255);
+        }
+
+        .card {
+            transition: color 0.8s linear 0.2s;
         }
     </style>
 </head>
@@ -45,7 +63,7 @@
     <div>
         <nav class="navbar fixed-top navbar-expand-lg navbar-light " style="width: 100%;">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html" style="color: #186ab3;">
+                <a class="navbar-brand" href="index.html" style="color: #033c6e;">
                     <img src="logo.png" alt="" width="70px" height="50px" class="d-inline-block align-text-center">
                     Sagrado Corazón
                 </a>
@@ -63,7 +81,7 @@
             </div>
         </nav>
     </div>
-    <div style="font-size: 40pt; width: 15%;margin-top:70px;float: left;text-align: left;">
+    <!--     <div style="font-size: 40pt; width: 15%;margin-top:70px;float: left;text-align: left;">
 
 
         <nav class="navbar" style="background-color: white; width: 15%;">
@@ -125,148 +143,270 @@
                         </svg> Salir</button></li>
 
             </ul>
-        </nav>
-        <!-- A vertical navbar -->
+        </nav> -->
+    <!-- A vertical navbar 
         <br>
 
 
 
+    </div>-->
+    <div style="margin-top:50px;width: 97%; height: 100%;">
+        <div id="divPrinc" class="container-fluid" style="display: inline; flex: 1;height: 100%;text-align: center; ">
+            <div class="row">
+                <div class="col-xl-4 xs-12">
+                    <button style="border-style: none; background-color: transparent;" onclick="nuevoTurno()">
+                        <div class="card" id="card1"
+                            style="width: 100%; height: 250px; margin-left: 20px; text-align: center;">
+                            <img src="mas.png" style="width: 50%;align-self: center;" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">NUEVO TURNO</h5>
+
+                            </div>
+                        </div>
+                        </a>
+                </div>
+                <div class="col-xl-4 xs-12">
+                    <button style="border-style: none; background-color: transparent;" onclick="misTurnos()">
+                        <div class="card" id="card2"
+                            style="width: 100%; height: 250px; margin-left: 20px; text-align: center;">
+                            <img src="calendario.png" style="width: 50%;align-self: center;margin-top: 5px;"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">MIS TURNOS</h5>
+
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                <div class="col-xl-4 xs-12">
+                    <button style="border-style: none; background-color: transparent;" onclick="misEstudios()">
+                        <div class="card" id="card3"
+                            style="width: 100%; height: 250px; margin-left: 20px; text-align: center;">
+                            <img src="documentos.png" style="width: 50%;align-self: center;margin-top: 5px;"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">MIS ESTUDIOS</h5>
+
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 xs-12">
+                    <button style="border-style: none; background-color: transparent;" onclick="misDatos()">
+                        <div class="card"
+                            style="width: 100%; height: 250px; margin-left: 20px;margin-top: 20px; text-align: center;">
+                            <img src="configuraciones.png" style="width: 50%;align-self: center;margin-top: 5px;"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">MIS DATOS</h5>
+
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                <div class="col-xl-4 xs-12">
+                    <button style="border-style: none; background-color: transparent;" onclick="cargarResultados()">
+                        <div class="card"
+                            style="width: 100%; height: 250px; margin-left: 20px;margin-top: 20px; text-align: center;">
+                            <img src="resultado-medico.png" style="width: 50%;align-self: center;margin-top: 5px;"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">CARGA DE RESULTADOS</h5>
+
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                <div class="col-xl-4 xs-12">
+                    <button style="border-style: none; background-color: transparent;" onclick="consultas()">
+                        <div class="card"
+                            style="width: 100%; height: 250px; margin-left: 20px;margin-top: 20px; text-align: center;">
+                            <img src="consulta.png" style="width: 50%;align-self: center;margin-top: 5px;"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">CONSULTAS</h5>
+
+                            </div>
+                        </div>
+                        </consultas>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div id="divPrinc"
-        style="float: left; background-image:url(fondo.png);background-repeat: no-repeat;background-size: cover;background-color:  #cccccc; margin-top:50px;width: 85%;">
-        <div id="nuevoTurno" class="container-fluid" style="display: none; flex: 1;height: 100%;text-align: center;">
-            <center>
-                <h3>NUEVO TURNO</h3>
-            </center>
+    <div id="image"
+        style="display: none; width: 100%;height: 100%; background-image:url(fondo.png);background-repeat: no-repeat;background-size: cover;background-color:  #cccccc; ">
+        <div id="nuevoTurno" class="container-fluid"
+            style="display: none; flex: 1;width: 50px; height: 50px;text-align: center;">
             <div class="row">
-                <div class="col-xl-12">
-                    <label>Paciente:</label>
-                    <select id="disabledSelect" class="form-select" onclick="habilitarUbicacion()">
-                        <option>PEREZ FEIGIN SOFIA</option>
-                        <option>FEIGIN NORMA ROXANA</option>
-                        <option>CHACON JOAQUIN</option>
-                    </select>
+                <div class="col-xl-12 xs-12" style="text-align: left;">
+                    <button class="btn btn-link" onclick="volver()"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+                            height="40" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                        </svg></button>
+
+                    <center>
+                        <h3>NUEVO TURNO</h3>
+                    </center>
                 </div>
             </div>
-            <div class="row">
 
-                <div class="col-xl-12">
-                    <label>Seleccione la ubicación:</label>
-                    <div class="form-check">
-                        <input class="form-check-input" onclick="habilitarDia()" type="radio" name="flexRadioDefault" id="ubicacion1">
-                        <label class="form-check-label" for="ubicacion1">
-                            A domicilio
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" onclick="habilitarDia()" type="radio" name="flexRadioDefault" id="ubicacion2">
-                        <label class="form-check-label" for="ubicacion2">
-                            Laboratorio
-                        </label>
+            <form style=" margin: 0 auto;
+            text-align: -webkit-center; ;
+            width: 50%;">
+
+                <div class="row">
+                    <div class="col-xl-12 xs-12">
+                        <label>Paciente:</label>
+                        <select class="form-control" style="font-size: small;width: 60%;">
+                            <option>PEREZ FEIGIN SOFIA</option>
+                            <option>FEIGIN NORMA ROXANA</option>
+                            <option>CHACON JOAQUIN</option>
+                        </select>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="row">
 
-                <div class="col-xl-12">
-                    <label for="start">Seleccione el día:</label>
+                <div class="row" style="margin-top: 20px;">
 
-                    <input type="date" onselect="habilitarHorario()" id="start" name="trip-start">
-                </div>
-            </div>
-            <br>
-            <div class="row">
-
-                <div class="col-xl-12">
-                    <label>Seleccione el horario:</label>
-
-                    <div class="form-check">
-                        <input class="form-check-input" onclick="habilitarTipo()" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            8:00
-                        </label>
+                    <div class="col-xl-6">
+                        <label>Seleccione la ubicación:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" onclick="habilitarDia()" type="radio" name="ubicacion"
+                                id="ubicacion1">
+                            <label class="form-check-label" for="ubicacion1">
+                                A domicilio
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onclick="habilitarDia()" type="radio" name="ubicacion"
+                                id="ubicacion2">
+                            <label class="form-check-label" for="ubicacion2">
+                                Laboratorio
+                            </label>
+                        </div>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" onclick="habilitarTipo()" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            8:30
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" onclick="habilitarTipo()" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            9:00
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" onclick="habilitarTipo()" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            9:30
-                        </label>
+                    <div class="col-xl-6">
+                        <label for="start">Seleccione el día:</label> <br>
+
+                        <input type="date" onselect="habilitarHorario()" id="start" name="trip-start">
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="row">
 
-                <div class="col-xl-12">
-                    <label>Seleccione el tipo de estudio:</label> <br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1"> ACIDO FENIL ACETICO (AFA)</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2"> BACILOSCOPIA DIRECTA Y CULTIVO</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3">C1 Q, INHIBIDOR</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3">CALCIO IONICO</label>
+
+                <div class="row" style="margin-top: 20px;">
+
+                    <div class="col-xl-12">
+                        <label>Seleccione el horario:</label>
+
+                        <div class="form-check">
+                            <input class="form-check-input" onclick="habilitarTipo()" type="radio" name="horario"
+                                id="radio1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                8:00
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onclick="habilitarTipo()" type="radio" name="horario"
+                                id="radio2">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                8:30
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onclick="habilitarTipo()" type="radio" name="horario"
+                                id="radio3">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                9:00
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" onclick="habilitarTipo()" type="radio" name="horario"
+                                id="radio4">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                9:30
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="row">
 
-                <div class="col-xl-12">
-                    <label>Presupuesto estimado ($)</label> <br>
-                </div>
-            </div>
-            <br>
-            <div class="row">
+                <div class="row" style="margin-top: 20px;">
 
-                <div class="col-xl-12">
-                    <button type="button" class="btn btn-success">Registrar turno</button>
+                    <div class="col-xl-12">
+                        <label>Seleccione el tipo de estudio:</label> <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1"> ACIDO FENIL ACETICO (AFA)</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2"> BACILOSCOPIA DIRECTA Y
+                                CULTIVO</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                            <label class="form-check-label" for="inlineCheckbox3">C1 Q, INHIBIDOR</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                            <label class="form-check-label" for="inlineCheckbox3">CALCIO IONICO</label>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <br>
+
+                <div class="row" style="margin-top: 20px;">
+
+                    <div class="col-xl-12">
+                        <label>Presupuesto estimado ($)</label> <br>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 20px;">
+
+                    <div class="col-xl-12">
+                        <button type="button" class="btn btn-success">Registrar turno</button>
+                    </div>
+                </div>
+
+            </form>
         </div>
         <div id="misTurnos" class="container-fluid" style="display: none; flex: 1;height: 100%;text-align: center;">
-
-            <center>
-                <h3>MIS TURNOS</h3>
-            </center>
             <div class="row">
-                <div class="col-xl-4">
-                    <input type="date" id="start" name="trip-start">
-                </div>
-                <div class="col-xl-4">
-                    <input type="date" id="start" name="trip-start">
-                </div>
-                <div class="col-xl-4">
-                    <button type="button" class="btn btn-primary">Buscar</button>
+                <div class="col-xl-12 xs-12" style="text-align: left;">
+                    <button class="btn btn-link" onclick="volver()"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+                            height="40" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                        </svg></button>
+
+                    <center>
+                        <h3>MIS TURNOS</h3>
+                    </center>
                 </div>
             </div>
-            <br>
+
             <div class="row">
+                <div class="col-xl-4">
+                    <input type="date" id="start" name="trip-start">
+                </div>
+                <div class="col-xl-4">
+                    <input type="date" id="start" name="trip-start">
+                </div>
+                <div class="col-xl-4">
+                    <button type="button" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg> Buscar</button>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
                 <div class="col-xl-12">
                     <table class="table table-striped" style="width: 90%; margin: auto; margin-bottom: 10px;">
-                        <thead style="background-color: rgb(175, 243, 255);">
+                        <thead style="background-color: rgb(134, 134, 134);">
                             <tr>
                                 <td>
                                     Fecha
@@ -291,7 +431,7 @@
                             </tr>
 
                         </thead>
-                        <tbody style="background-color: rgb(232, 252, 255)">
+                        <tbody style="background-color: rgb(236, 236, 236)">
                             <tr>
                                 <td>
                                     fvsdfsdfsf
@@ -392,82 +532,70 @@
                                         </svg></button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-danger"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                            <path
-                                                d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
-                                        </svg></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-danger"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                            <path
-                                                d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
-                                        </svg></button>
-                                </td>
-                            </tr>
+
+
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
 
         <div id="misEstudios" class="container-fluid" style="display: none; flex: 1;height: 100%;text-align: center; ">
-            <center>
-                <h3>MIS ANÁLISIS</h3>
-            </center>
             <div class="row">
-                <div class="col-xl-4">
-                    <input type="date" id="start" name="trip-start">
-                </div>
-                <div class="col-xl-4">
-                    <input type="date" id="start" name="trip-start">
-                </div>
-                <div class="col-xl-4">
-                    <button type="button" class="btn btn-primary">Buscar</button>
+                <div class="col-xl-12 xs-12" style="text-align: left;">
+                    <button class="btn btn-link" onclick="volver()"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+                            height="40" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                        </svg></button>
+
+                    <center>
+                        <h3>MIS ANÁLISIS</h3>
+                    </center>
                 </div>
             </div>
-            <br>
+
             <div class="row">
+                <div class="col-xl-4">
+                    <input type="date" id="start" name="trip-start">
+                </div>
+                <div class="col-xl-4">
+                    <input type="date" id="start" name="trip-start">
+                </div>
+                <div class="col-xl-4">
+                    <button type="button" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg> Buscar</button>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
                 <div class="col-xl-12">
                     <table class="table table-striped" style="width: 90%; margin: auto; margin-bottom: 10px;">
-                        <thead style="background-color: rgb(175, 243, 255);">
+                        <thead style="background-color: rgb(134, 134, 134)">
                             <tr>
                                 <td>
                                     Fecha
@@ -492,7 +620,7 @@
                             </tr>
 
                         </thead>
-                        <tbody style="background-color: rgb(232, 252, 255)">
+                        <tbody style="background-color: rgb(236, 236, 236)">
                             <tr>
                                 <td>
                                     fvsdfsdfsf
@@ -605,98 +733,55 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-secondary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-file-earmark-pdf" viewBox="0 0 16 16">
-                                            <path
-                                                d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
-                                            <path
-                                                d="M4.603 14.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.697 19.697 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.188-.012.396-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.066.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.712 5.712 0 0 1-.911-.95 11.651 11.651 0 0 0-1.997.406 11.307 11.307 0 0 1-1.02 1.51c-.292.35-.609.656-.927.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.266.266 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.71 12.71 0 0 1 1.01-.193 11.744 11.744 0 0 1-.51-.858 20.801 20.801 0 0 1-.5 1.05zm2.446.45c.15.163.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.876 3.876 0 0 0-.612-.053zM8.078 7.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z" />
-                                        </svg>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    fvsdfsdfsf
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-secondary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-file-earmark-pdf" viewBox="0 0 16 16">
-                                            <path
-                                                d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
-                                            <path
-                                                d="M4.603 14.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.697 19.697 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.188-.012.396-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.066.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.712 5.712 0 0 1-.911-.95 11.651 11.651 0 0 0-1.997.406 11.307 11.307 0 0 1-1.02 1.51c-.292.35-.609.656-.927.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.266.266 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.71 12.71 0 0 1 1.01-.193 11.744 11.744 0 0 1-.51-.858 20.801 20.801 0 0 1-.5 1.05zm2.446.45c.15.163.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.876 3.876 0 0 0-.612-.053zM8.078 7.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z" />
-                                        </svg>
-                                    </button>
-                                </td>
-                            </tr>
+
+
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="row" >
-                <div class="col-xl-12" >
-                    <nav aria-label="Page navigation example" > 
+            <div class="row">
+                <div class="col-xl-12">
+                    <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                              <span aria-hidden="true">&laquo;</span>
-                            </a>
-                          </li>
-                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                              <span aria-hidden="true">&raquo;</span>
-                            </a>
-                          </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
                         </ul>
-                      </nav>
+                    </nav>
                 </div>
             </div>
         </div>
 
-        <div id="misDatos" class="container-fluid" style="display: none; flex: 1;height: 100%;">
+        <div id="misDatos" class="container-fluid" style="display: none; flex: 1;height: 100%; width: 100%;">
+            <div class="row">
+                <div class="col-xl-12 xs-12" style="text-align: left;">
+                    <button class="btn btn-link" onclick="volver()"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+                            height="40" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                        </svg></button>
+
+                    <center>
+                        <h3>Mis datos</h3>
+                    </center>
+                </div>
+            </div>
             <form style=" margin: 0 auto;
             text-align: center;
             width: 90%;">
 
 
-                <center>
-                    <h3>Mis datos</h3>
-                </center>
+
                 <div class="row">
 
                     <div class="col-xl-6">
@@ -709,8 +794,8 @@
                         <input type="text" id="disabledTextInput" class="form-control" placeholder="Apellido">
                     </div>
                 </div>
-                <br>
-                <div class="row">
+
+                <div class="row" style="margin-top: 20px;">
                     <div class="col-xl-6">
                         <label>DNI:</label>
                         <input type="text" id="disabledTextInput" class="form-control" placeholder="DNI">
@@ -721,22 +806,22 @@
                         <input type="date" id="start" name="trip-start">
                     </div>
                 </div>
-                <br>
-                <div class="row">
+
+                <div class="row" style="margin-top: 20px;">
                     <div class="col-xl-6">
                         <label>Domicilio:</label>
                         <input type="text" id="disabledTextInput" class="form-control" placeholder="DNI">
                     </div>
                     <div class="col-xl-6">
                         <label>Obra social:</label> <br>
-                        <select id="disabledSelect" class="form-select">
+                        <select id="disabledSelect" class="form-control">
                             <option>Apross</option>
                             <option>Family</option>
                             <option>Galeno</option>
                         </select>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-top: 20px;">
                     <div class="col-xl-6">
                         <label>Celular:</label>
                         <input type="text" id="disabledTextInput" class="form-control" placeholder="Celular">
@@ -746,27 +831,38 @@
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                 </div>
-                <br>
 
-                <div class="row">
+
+                <div class="row" style="margin-top: 20px;">
 
                     <div class="col-xl-12">
                         <button type="button" class="btn btn-success">Guardar</button>
                     </div>
                 </div>
-                <br>
+
             </form>
         </div>
-        
+
         <div id="cargarResultados" class="container-fluid" style="display: none; flex: 1;height: 100%;">
+            <div class="row">
+                <div class="col-xl-12 xs-12" style="text-align: left;">
+                    <button class="btn btn-link" onclick="volver()"><svg xmlns="http://www.w3.org/2000/svg" width="40"
+                            height="40" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                        </svg></button>
+
+                    <center>
+                        <h3>Cargar resultados</h3>
+                    </center>
+                </div>
+            </div>
             <form style=" margin: 0 auto;
             text-align: center;
             width: 90%;">
 
 
-                <center>
-                    <h3>Cargar resultados</h3>
-                </center>
+
                 <div class="row">
 
                     <div class="col-xl-6">
@@ -837,7 +933,7 @@
                     <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" style="text-align: center;background-color: #cbe7ff;">
-                    
+
                 </div>
 
             </div>
@@ -852,7 +948,7 @@
                     <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" style="text-align: center;background-color: #cbe7ff;">
-                   
+
                 </div>
 
             </div>
