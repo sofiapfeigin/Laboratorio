@@ -5,9 +5,35 @@ $(window).on('load', function () {
 
 });
 
-$(function() {
+$(function () {
     $('.selectpicker').selectpicker();
-  });
+});
+
+const $dropdown = $(".dropdown");
+const $dropdownToggle = $(".dropdown-toggle");
+const $dropdownMenu = $(".dropdown-menu");
+const showClass = "show";
+
+$(window).on("load resize", function () {
+    if (this.matchMedia("(min-width: 768px)").matches) {
+        $dropdown.hover(
+            function () {
+                const $this = $(this);
+                $this.addClass(showClass);
+                $this.find($dropdownToggle).attr("aria-expanded", "true");
+                $this.find($dropdownMenu).addClass(showClass);
+            },
+            function () {
+                const $this = $(this);
+                $this.removeClass(showClass);
+                $this.find($dropdownToggle).attr("aria-expanded", "false");
+                $this.find($dropdownMenu).removeClass(showClass);
+            }
+        );
+    } else {
+        $dropdown.off("mouseenter mouseleave");
+    }
+});
 
 function nuevoTurno() {
     var f = document.getElementById("divPrinc");
@@ -23,8 +49,9 @@ function nuevoTurno() {
     var e = document.getElementById("cargarResultados");
     e.style.display = "none";
     var g = document.getElementById("image");
-    e.style.display = "inline";
+    g.style.display = "inline";
 
+    console.log("entro");
 
 }
 function misTurnos() {
@@ -41,7 +68,7 @@ function misTurnos() {
     var e = document.getElementById("cargarResultados");
     e.style.display = "none";
     var g = document.getElementById("image");
-    e.style.display = "inline";
+    g.style.display = "inline";
 }
 function misEstudios() {
     var f = document.getElementById("divPrinc");
@@ -57,7 +84,7 @@ function misEstudios() {
     var e = document.getElementById("cargarResultados");
     e.style.display = "none";
     var g = document.getElementById("image");
-    e.style.display = "inline";
+    g.style.display = "inline";
 }
 function misDatos() {
     var f = document.getElementById("divPrinc");
@@ -73,7 +100,7 @@ function misDatos() {
     var e = document.getElementById("cargarResultados");
     e.style.display = "none";
     var g = document.getElementById("image");
-    e.style.display = "inline";
+    g.style.display = "inline";
 }
 function salir() {
     location.href = 'index.html';
@@ -93,7 +120,7 @@ function cargarResultados() {
     var e = document.getElementById("cargarResultados");
     e.style.display = "inline";
     var g = document.getElementById("image");
-    e.style.display = "inline";
+    g.style.display = "inline";
 }
 function consultas() {
     // var f = document.getElementById("divPrinc");
@@ -123,6 +150,6 @@ function volver() {
     var e = document.getElementById("cargarResultados");
     e.style.display = "none";
     var g = document.getElementById("image");
-    e.style.display = "none";
+    g.style.display = "none";
 
 }

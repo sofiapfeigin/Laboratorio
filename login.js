@@ -3,13 +3,22 @@ $(document).ready(function () {
         interval: 2000
     })
 });
-
+ 
 $(window).on('load', function () {
     setTimeout(function () {
         $(".loader-page").css({ visibility: "hidden", opacity: "0" })
     }, 2000);
 
 });
+
+function cerrarModalInicioSesion()
+{
+    $("#modalInicioSesion").modal('hide');
+}
+function cerrarModalCrearCuenta()
+{
+    $("#ModalCrearUsuario").modal('hide');
+}
 
 let moduloLogin = angular.module('iw3', ['ngStorage', 'oitozero.ngSweetAlert'])
 
