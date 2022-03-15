@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+<head id="Head1" runat="server">
+
+    <style type="text/css" media="print">
+        spanTitulos {
+            color: #222;
+            font-size: 12px;
+            font-family: Arial;
+        }
+
+       
+    </style>
+
+    <style type="text/css">
+        body {
+            font-family: Calibri, Arial;
+            font-size: 0.85em;
+        }
+
+        .bordeTitulo {
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000000;
+            border-left: 0px none #000000;
+            border-right: 0px none #000000;
+            background-color: #B0B0B0;
+        }
+
+        .rojoo {
+            font-size: 18pt;
+            color: red;
+        }
+    </style>
+
+</head>
+<body style="width: 900px">
+    <form id="form1" runat="server">
+        <div style="width: 900px; font-size: 1.2em">
+            <label ID="lblResultado" runat="server"></label>
+            <Panel ID="panel2" runat="server">
+                <a href="#" media="screen" onclick="window.print()">Imprimir Comprobante</a>
+                <a>&nbsp;|&nbsp;</a>
+                <a href="#" media="screen" onclick="window.close()">Cerrar Ventana</a>
+            </Panel>
+            <br />
+            <br />
+            <Panel ID="panel1" runat="server">
+                <table style="border: solid 1px #333;" cellspacing="0" cellpadding="0" width="875px">
+                    <tr>
+                        <td>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td style="width: 10%; font-size: 12px;text-align: left;">
+                                        <img src="logo.png" style="height: 60px" />
+                                    </td>
+                                    <td style="width: 45%; font-size: 12px;text-align: left;">
+                                        <p>Laboratorio de Análisis Clínicos Sagrado Corazón</p>
+                                        <p style="font-size: 12px;">
+                                            Roque Saenz Peña 1377 Bo Cofico 5000 Córdoba
+                                        </p>
+                                        <p style="font-size: 12px;">
+                                            TEL: 157686490
+                                        </p>
+                                        <p style="font-size: 12px;">
+                                            labsagradocorazon@hotmail.com
+                                        </p>
+                                    </td>
+                                    <td style="width: 45%; font-size: 12px; text-align: right;">
+                                        <p style="font-size: 12px;">
+                                            Córdoba, 22 de agosto de 2019
+                                        </p>
+                                        <p style="font-size: 12px;">
+                                            Recepción de muestra: 14 de agosto de 2019
+                                        </p>
+                                        
+                                    </td>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <tr >
+                        <td style="border-top: 1px solid;">
+                            <table cellspacing="0" style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <label ID="label5" runat="server" Font-Bold="True" Style="text-decoration: underline">Paciente:</label>
+                                        &nbsp;
+                                        <label ID="txtDescripcion" runat="server">Perez Feigin Sofia</label>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label ID="label5" runat="server"  Font-Bold="True" Style="text-decoration: underline">Obra Social:</label>
+                                        &nbsp;
+                                        <label ID="txtDescripcion" runat="server">Apross</label>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label ID="label5" runat="server" Font-Bold="True" Style="text-decoration: underline">Af. N°:</label>
+                                        &nbsp;
+                                        <label ID="txtDescripcion" runat="server">224120269015</label>
+
+                                    </td>
+                                </tr>
+                               
+                            </table>
+                        </td>
+
+                    </tr>
+                    <tr >
+                        <td style="line-height: 14px; font-size: 10px;margin-top: 50px; text-align: center;">
+                            <label ID="label33">Laboratorio autorizado por el colegio de Bioquímicos de la Provincia de Córdoba, según resolución No 8124/2015 – Válido hasta 30/04/2020</label>
+                        </td>
+                    </tr>
+
+
+                </table>
+            </Panel>
+        </div>
+    </form>
+</body>
+</html>
