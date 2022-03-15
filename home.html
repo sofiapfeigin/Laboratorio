@@ -47,7 +47,7 @@
         }
 
         .card:hover {
-            background-color: rgb(159, 189, 255);
+            background-color: rgb(196 200 205);
         }
 
         .card {
@@ -85,10 +85,14 @@
                                 PEREZ FEIGIN SOFIA
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                        height="16" fill="currentColor" class="bi bi-box-arrow-left"
+                                        viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
+                                        <path fill-rule="evenodd"
+                                            d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                                    </svg> Cerrar Sesión</a>
                             </div>
                             <!-- <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -274,16 +278,17 @@
                                 d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
                         </svg></button>
 
-                    <center>
-                        <h3>NUEVO TURNO</h3>
-                    </center>
+
                 </div>
             </div>
 
-            <form style=" margin: 0 auto;
+            <form
+                style=" margin: 0 auto;
             text-align: -webkit-center; ;
-            width: 50%;">
-
+            width: 50%; border: 1px solid; margin-bottom: 20px; background-color: white; border-color: gray; border-radius: 20px;">
+                <center>
+                    <h3>NUEVO TURNO</h3>
+                </center>
                 <div class="row">
                     <div class="col-xl-12 xs-12">
                         <label>Paciente:</label>
@@ -389,7 +394,7 @@
                     </div>
                 </div>
 
-                <div class="row" style="margin-top: 20px;">
+                <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
 
                     <div class="col-xl-12">
                         <button type="button" class="btn btn-success">Registrar turno</button>
@@ -797,47 +802,50 @@
                                 d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
                         </svg></button>
 
-                    <center>
-                        <h3>Mis datos</h3>
-                    </center>
+
                 </div>
             </div>
-            <form style=" margin: 0 auto;
-            text-align: center;
-            width: 90%;">
+            <form
+                style=" margin: 0 auto;
+            text-align: -webkit-center; ;
+            width:90%; border: 1px solid; margin-bottom: 20px; background-color: white; border-color: gray; border-radius: 20px;">
 
-
+                <center>
+                    <h3 style="margin-top: 20px;">Mis datos</h3>
+                </center>
 
                 <div class="row">
 
-                    <div class="col-xl-6">
+                    <div class="col-xl-4">
                         <label>Nombre:</label>
                         <input type="text" height="10px" id="disabledTextInput" class="form-control"
                             placeholder="Nombre">
                     </div>
-                    <div class="col-xl-6">
+                    <div class="col-xl-4">
                         <label>Apellido:</label>
                         <input type="text" id="disabledTextInput" class="form-control" placeholder="Apellido">
+                    </div>
+                    <div class="col-xl-4">
+                        <label>DNI:</label>
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="DNI">
                     </div>
                 </div>
 
                 <div class="row" style="margin-top: 20px;">
-                    <div class="col-xl-6">
-                        <label>DNI:</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="DNI">
-                    </div>
+                    
                     <div class="col-xl-6">
                         <label for="start">Fecha de nacimiento:</label> <br>
 
                         <input type="date" id="start" name="trip-start">
                     </div>
+                    <div class="col-xl-6">
+                        <label>Domicilio:</label>
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Domicilio">
+                    </div>
                 </div>
 
                 <div class="row" style="margin-top: 20px;">
-                    <div class="col-xl-6">
-                        <label>Domicilio:</label>
-                        <input type="text" id="disabledTextInput" class="form-control" placeholder="DNI">
-                    </div>
+                    
                     <div class="col-xl-6">
                         <label>Obra social:</label> <br>
                         <select id="disabledSelect" class="form-control">
@@ -845,6 +853,10 @@
                             <option>Family</option>
                             <option>Galeno</option>
                         </select>
+                    </div>
+                    <div class="col-xl-6">
+                        <label>Nro. Afiliado:</label>
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Número de afiliado">
                     </div>
                 </div>
                 <div class="row" style="margin-top: 20px;">
@@ -859,7 +871,7 @@
                 </div>
 
 
-                <div class="row" style="margin-top: 20px;">
+                <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
 
                     <div class="col-xl-12">
                         <button type="button" class="btn btn-success">Guardar</button>
